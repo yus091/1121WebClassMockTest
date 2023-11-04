@@ -11,8 +11,18 @@ namespace moni1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            eventSearchDataSource.DataBind();
             userLB.Text = Session["name"] + " 歡迎你，已參加下列活動：<br>";
         }
 
+        protected void eventSearchBT_Click(object sender, EventArgs e)
+        {
+            Session["eventSearch"] = eventSearchTB.Text;
+        }
+
+        protected void insertEventBT_Click(object sender, EventArgs e)
+        {
+            Session["insertEvent"] = insertEventTB.Text;
+        }
     }
 }
