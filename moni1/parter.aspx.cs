@@ -20,6 +20,8 @@ namespace moni1
         protected void eventSearchBT_Click(object sender, EventArgs e)
         {
             Session["eventSearch"] = eventSearchTB.Text;
+            //eventSearchDataSource.Update();
+            GridView2.DataBind();
         }
 
         protected void insertEventBT_Click(object sender, EventArgs e)
@@ -39,6 +41,12 @@ namespace moni1
                 insertSuccessLB.Text = "新增失敗，請輸入正確的活動編號！";
                 insertSuccessLB.Visible = true;
             }
+        }
+
+        protected void userJoinDataSource_Deleted(object sender, SqlDataSourceStatusEventArgs e)
+        {
+            //eventSearchDataSource.Update();
+            GridView2.DataBind();
         }
     }
 }
